@@ -1,6 +1,6 @@
-import { PostCard } from "../../entities/post/ui/PostCard";
-import type { Post } from "../../Types/Post";
-import styles from "./PostList.module.css";
+import { PostCard } from '../../entities/post/ui/PostCard';
+import type { Post } from '../../Types/Post';
+import styles from './PostList.module.css';
 
 type Props = {
   posts: Post[];
