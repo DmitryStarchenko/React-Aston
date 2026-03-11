@@ -1,0 +1,30 @@
+.modal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 20%;
+  left: 30%;
+  width: 40%;
+  height: 60%;
+  border: var(--border-size) solid var(--border-color);
+  border-radius: var(--border-radius);
+  background-color: var(--bg-modal);
+  gap: 15px;
+}
+
+.icon {
+  width: 30%;
+}
+
+.name {
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  font-size: 25px;
+  font-weight: bold;
+
+  &:hover {
+    color: rgb(141, 0, 0);
+  }
+}

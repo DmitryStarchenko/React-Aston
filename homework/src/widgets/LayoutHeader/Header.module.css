@@ -12,3 +12,9 @@
 h1 {
   margin: 0 0 0 var(--margin-20);
 }
+
+.nav {
+  display: flex;
+  margin-right: var(--margin-20);
+  gap: 20px;
+}
