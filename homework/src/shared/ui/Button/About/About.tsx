@@ -1,12 +1,14 @@
-import { useModal } from '../../../lib/modal/useModal';
+import { Modal } from '../../Modal/Modal';
+import { ModalView } from '../../Modal/ModalView';
 import styles from './About.module.css';
 
 export const About = () => {
-  const { modalToggle } = useModal();
-
   return (
-    <button className={styles.aboutButton} onClick={modalToggle}>
-      About
-    </button>
+    <Modal>
+      <Modal.Trigger>
+        <button className={styles.aboutButton}>About</button>
+      </Modal.Trigger>
+      <ModalView />
+    </Modal>
   );
 };

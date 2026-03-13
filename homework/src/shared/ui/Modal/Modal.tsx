@@ -1,24 +1,53 @@
-import { createPortal } from 'react-dom';
-import styles from './Modal.module.css';
-import { ModalClose } from '../Button/ModalClose/ModalClose';
-import { useModal } from '../../lib/modal/useModal';
+import { useModal } from './useModal';
+import {
+  cloneElement,
+  useState,
+  type ReactElement,
+  type ReactNode,
+} from 'react';
+import { ModalContext } from '../../ui/Modal/useModal';
 
-export const Modal = () => {
-  const { isShowing } = useModal();
-  return isShowing
-    ? createPortal(
-        <div className={styles.modal}>
-          <img
-            className={styles.icon}
-            src="https://cdn-icons-png.flaticon.com/512/2111/2111432.png"
-            alt="github-icon"
-          />
-          <a className={styles.name} href="https://github.com/DmitryStarchenko">
-            Dmitry Starchenko
-          </a>
-          <ModalClose />
-        </div>,
-        document.body
-      )
-    : null;
+export const Modal = ({ children }: { children: ReactNode }) => {
+  const [isShowing, setIsShowing] = useState(false);
+
+  const modalToggle = () => {
+    setIsShowing(!isShowing);
+  };
+
+  return (
+    <ModalContext.Provider value={{ isShowing, modalToggle }}>
+      {children}
+    </ModalContext.Provider>
+  );
 };
+
+const ModalTrigger = ({
+  children,
+}: {
+  children: ReactElement<{ onClick?: () => void }>;
+}) => {
+  const { modalToggle } = useModal();
+  return cloneElement(children, { onClick: modalToggle });
+};
+
+const ModalHeader = ({
+  children,
+}: {
+  children: ReactElement<{ onClick?: () => void }>;
+}) => {
+  const { modalToggle } = useModal();
+  return cloneElement(children, { onClick: modalToggle });
+};
+
+const ModalBody = ({ children }: { children: ReactElement }) => {
+  return <>{children}</>;
+};
+
+const ModalFooter = ({ children }: { children: ReactElement }) => {
+  return <>{children}</>;
+};
+
+Modal.Trigger = ModalTrigger;
+Modal.Header = ModalHeader;
+Modal.Body = ModalBody;
+Modal.Footer = ModalFooter;

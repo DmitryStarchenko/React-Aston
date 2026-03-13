@@ -28,3 +28,9 @@
     color: rgb(141, 0, 0);
   }
 }
+
+.footer {
+  position: absolute;
+  bottom: 15px;
+  margin: 0;
+}
