@@ -2,7 +2,7 @@ import { createPortal } from 'react-dom';
 import { Modal } from './Modal';
 import { ModalClose } from '../Button/ModalClose/ModalClose';
 import { useModal } from './useModal';
-import styles from './Modal.module.css';
+import styles from './ModalView.module.css';
 
 export const ModalView = () => {
   const { isShowing } = useModal();

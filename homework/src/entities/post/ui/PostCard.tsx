@@ -1,4 +1,4 @@
-import type { Post } from '../../../Types/Post';
+import type { Post } from '../types/Post';
 import styles from './PostCard.module.css';
 
 type Props = {
