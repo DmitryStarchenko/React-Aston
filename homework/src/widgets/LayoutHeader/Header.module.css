@@ -18,3 +18,18 @@ h1 {
   margin-right: var(--margin-20);
   gap: 20px;
 }
+
+.aboutButton {
+  height: 50px;
+  width: 100px;
+  background-color: var(--transparent);
+  border: none;
+  font-size: 20px;
+  font-weight: bold;
+  border: var(--border-size) solid var(--transparent);
+  border-radius: var(--border-radius);
+
+  &:hover {
+    border-color: var(--border-color);
+  }
+}

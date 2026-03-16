@@ -1,6 +1,6 @@
 import { createPortal } from 'react-dom';
 import { Modal } from './Modal';
-import { ModalClose } from '../Button/ModalClose/ModalClose';
+import { Button } from '../Button/Button';
 import { useModal } from './useModal';
 import styles from './ModalView.module.css';
 
@@ -9,7 +9,12 @@ export const ModalView = () => {
   return isShowing
     ? createPortal(
         <div className={styles.modal}>
-          <ModalClose />
+          <Modal.Header>
+            <h2 className={styles.title}>About</h2>
+          </Modal.Header>
+          <Modal.Trigger>
+            <Button CSSClasses={styles.closeButton} content={'X'} />
+          </Modal.Trigger>
           <Modal.Body>
             <>
               <img
