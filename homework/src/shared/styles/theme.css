@@ -3,6 +3,7 @@
   --bg-main: rgb(168, 255, 255);
   --border-color: rgb(255, 160, 154);
   --bg-modal: rgb(154, 217, 253);
+  --bg-comment: rgb(87, 145, 145);
 
   --border-radius: 15px;
   --transparent: rgba(0, 0, 0, 0);
@@ -16,4 +17,5 @@
   --bg-main: rgb(87, 145, 145);
   --border-color: rgb(134, 83, 79);
   --bg-modal: rgb(95, 131, 151);
+  --bg-comment: rgb(168, 255, 255);
 }
