@@ -1,0 +1,46 @@
+.filter {
+  position: sticky;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: fit-content;
+  top: 20px;
+  margin-top: 20px;
+  padding: 15px;
+  gap: 20px;
+  background-color: var(--bg-header-footer);
+}
+
+.titleFilter {
+  margin: 0;
+}
+
+.titleLength {
+  margin: 0;
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+}
+
+.inputFilter {
+  accent-color: var(--bg-comment);
+}
+
+.applyButton {
+  padding: 15px;
+  background-color: var(--transparent);
+  border: 1px dotted var(--border-color);
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: bold;
+
+  &:hover {
+    border: var(--border-size) solid var(--border-color);
+  }
+}
