@@ -7,7 +7,7 @@ import styles from './Header.module.css';
 export const Header = () => {
   return (
     <div className={styles.header}>
-      <h1>Posts</h1>
+      <h1>Our blog</h1>
       <div className={styles.nav}>
         <Modal>
           <Modal.Trigger>
