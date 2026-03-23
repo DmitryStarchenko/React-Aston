@@ -15,6 +15,7 @@ h1 {
 
 .nav {
   display: flex;
+  align-items: center;
   margin-right: var(--margin-20);
   gap: 20px;
 }
@@ -22,9 +23,9 @@ h1 {
 .aboutButton {
   height: 50px;
   width: 100px;
+  font-family: serif;
   background-color: var(--transparent);
-  border: none;
-  font-size: 20px;
+  font-size: 22px;
   font-weight: bold;
   border: var(--border-size) solid var(--transparent);
   border-radius: var(--border-radius);
