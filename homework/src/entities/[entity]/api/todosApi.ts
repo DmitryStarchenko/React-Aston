@@ -1,12 +1,9 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { baseApi } from '../../../shared/services/services';
+import type { Todo } from '../../todo/types/Todos';
 
-const BASEURL = 'https://jsonplaceholder.typicode.com';
-
-export const todosApi = createApi({
-  reducerPath: 'todosApi',
-  baseQuery: fetchBaseQuery({ baseUrl: BASEURL }),
+const todosApi = baseApi.injectEndpoints({
   endpoints: (build) => ({
-    getTodos: build.query({
+    getTodos: build.query<Todo[], undefined>({
       query: () => 'todos',
     }),
   }),

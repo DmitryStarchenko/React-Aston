@@ -1,13 +1,16 @@
-import { posts } from '../../../../entities/post/mocks/posts';
+import type { Post } from '../../../../entities/post/types/Post';
 
 export const usePosts = (
+  data: Post[] | undefined,
   postId: number | undefined,
   userId: number | undefined
-) => {
+): Post[] => {
+  if (!data) return [];
+
   if (postId) {
-    return posts.filter((post) => post.id === postId);
+    return data.filter((post) => post.id === postId);
   } else if (userId) {
-    return posts.filter((post) => post.userId === userId);
+    return data.filter((post) => post.userId === userId);
   }
-  return posts;
+  return data;
 };

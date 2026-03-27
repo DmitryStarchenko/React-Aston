@@ -1,10 +1,6 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { baseApi } from '../../../shared/services/services';
 
-const BASEURL = 'https://jsonplaceholder.typicode.com';
-
-export const albumsApi = createApi({
-  reducerPath: 'albumsApi',
-  baseQuery: fetchBaseQuery({ baseUrl: BASEURL }),
+const albumsApi = baseApi.injectEndpoints({
   endpoints: (build) => ({
     getAlbums: build.query({
       query: () => 'albums',
