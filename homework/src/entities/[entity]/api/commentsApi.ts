@@ -1,12 +1,9 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { baseApi } from '../../../shared/services/services';
+import type { Comment } from '../../comment/types/Comment';
 
-const BASEURL = 'https://jsonplaceholder.typicode.com';
-
-export const commentsApi = createApi({
-  reducerPath: 'commentsApi',
-  baseQuery: fetchBaseQuery({ baseUrl: BASEURL }),
+const commentsApi = baseApi.injectEndpoints({
   endpoints: (build) => ({
-    getComments: build.query({
+    getComments: build.query<Comment[], undefined>({
       query: () => 'comments',
     }),
   }),

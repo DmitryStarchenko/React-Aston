@@ -25,7 +25,7 @@ export const PostCard = (props: Props) => {
         onClick={HandleComm}
         content={'💭'}
       />
-      {isOpenComment && <CommentList />}
+      {isOpenComment && <CommentList postId={post.id} />}
     </div>
   );
 };

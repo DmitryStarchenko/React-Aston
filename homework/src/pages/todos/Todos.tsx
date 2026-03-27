@@ -1,3 +1,14 @@
+import { useGetTodosQuery } from '../../entities/[entity]/api/todosApi';
+import { MainLayout } from '../../shared/layouts/MainLayout';
+import { TodoListWithLoading } from '../../shared/lib/hoc/HOC';
+
 export const Todos = () => {
-  return <h1>Todos</h1>;
+  const { data, isLoading } = useGetTodosQuery(undefined);
+
+  if (!data) return <h1>Error</h1>;
+  return (
+    <MainLayout>
+      <TodoListWithLoading todos={data} isLoading={isLoading} />
+    </MainLayout>
+  );
 };
