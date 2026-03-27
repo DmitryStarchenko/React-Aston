@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import type { User } from '../types/User';
 import styles from './UserCard.module.css';
 
@@ -12,8 +13,23 @@ export const UserCard = (props: Props) => {
     <div className={styles.card}>
       <p className={styles.name}>{user.name}</p>
       <p className={styles.userName}>{user.username}</p>
-      <p className={styles.email}>{user.email}</p>
-      <p className={styles.website}>{user.website}</p>
+      <div className={styles.userContent}>
+        Email: <p className={styles.content}>{user.email}</p>
+      </div>
+      <div className={styles.userContent}>
+        Website: <p className={styles.content}>{user.website}</p>
+      </div>
+      <div className={styles.nav}>
+        <NavLink className={styles.link} to={`${user.id}/albums`}>
+          Albums
+        </NavLink>
+        <NavLink className={styles.link} to={`${user.id}/todos`}>
+          Todos
+        </NavLink>
+        <NavLink className={styles.link} to={`${user.id}/posts`}>
+          Posts
+        </NavLink>
+      </div>
     </div>
   );
 };

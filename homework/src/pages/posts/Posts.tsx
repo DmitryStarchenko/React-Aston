@@ -6,6 +6,7 @@ import { PostLengthFilter } from '../../features/PostLengthFilter/ui/PostLengthF
 import { PostListWithLoading } from '../../shared/lib/hoc/HOC';
 import { filterByLength } from '../../features/PostLengthFilter/lib/filterByLength';
 import { useMemo, useState } from 'react';
+import styles from './Posts.module.css';
 
 export const Posts = () => {
   const { id } = useParams();
@@ -31,12 +32,15 @@ export const Posts = () => {
 
   return (
     <MainLayout>
-      <PostLengthFilter
-        handleClickFilter={() => setCurrentLength(currentLength)}
-        postsLength={postsLength}
-        setCurrentLength={setCurrentLength}
-      />
-      <PostListWithLoading isLoading={isLoading} posts={postsFiltered} />
+      <h1>Posts</h1>
+      <div className={styles.postContent}>
+        <PostLengthFilter
+          handleClickFilter={() => setCurrentLength(currentLength)}
+          postsLength={postsLength}
+          setCurrentLength={setCurrentLength}
+        />
+        <PostListWithLoading isLoading={isLoading} posts={postsFiltered} />
+      </div>
     </MainLayout>
   );
 };

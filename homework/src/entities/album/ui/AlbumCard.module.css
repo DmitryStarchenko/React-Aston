@@ -1,0 +1,41 @@
+.card {
+  position: relative;
+  width: 80%;
+  border: var(--border-size) solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: var(--padding-20);
+  width: 40%;
+}
+
+.link {
+  height: 28px;
+  width: 90px;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+  text-align: center;
+  border: var(--border-size) solid var(--transparent);
+  border-radius: var(--border-radius);
+  color: rgb(0, 0, 0);
+  background-color: var(--transparent);
+  cursor: pointer;
+
+  &:hover {
+    border-color: var(--border-color);
+  }
+}
+
+.albumName {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.albumId {
+  position: absolute;
+  font-size: 150px;
+  margin: 0 20px 0 0;
+  right: 0;
+  top: -23px;
+  color: rgba(80, 80, 80, 0.205);
+}
