@@ -8,6 +8,7 @@ export const Todos = () => {
   if (!data) return <h1>Error</h1>;
   return (
     <MainLayout>
+      <h1>Todos</h1>
       <TodoListWithLoading todos={data} isLoading={isLoading} />
     </MainLayout>
   );

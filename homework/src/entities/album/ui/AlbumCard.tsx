@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import type { Album } from '../types/Album';
 import styles from './AlbumCard.module.css';
 
@@ -14,6 +15,11 @@ export const AlbumCard = (props: Props) => {
         Album<p className={styles.albumId}>{album.id}</p>
       </div>
       <p className={styles.albumTitle}>{album.title}</p>
+      <div className={styles.nav}>
+        <NavLink className={styles.link} to={`${album.id}/photos`}>
+          Photos
+        </NavLink>
+      </div>
     </div>
   );
 };

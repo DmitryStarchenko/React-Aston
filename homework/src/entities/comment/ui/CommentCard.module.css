@@ -1,0 +1,10 @@
+.commentName {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 18px 0 0 0;
+}
+
+.commentEmail {
+  margin: 0;
+  color: rgb(119, 119, 119);
+}

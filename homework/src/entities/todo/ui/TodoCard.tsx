@@ -13,7 +13,7 @@ export const TodoCard = (props: Props) => {
       <div className={styles.todoName}>
         Todo<p className={styles.todoId}>{todo.id}</p>
       </div>
-      <p className={styles.todoTitle}>{todo.title}</p>
+      <p>{todo.title}</p>
       <div
         className={
           todo.completed ? styles.todoComplete : styles.todoNotComplete

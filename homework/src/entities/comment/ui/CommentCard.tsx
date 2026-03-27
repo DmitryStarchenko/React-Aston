@@ -10,11 +10,9 @@ export const CommentCard = (props: Props) => {
 
   return (
     <>
-      <div className={styles.commentName}>
-        {comment.name}
-        <p className={styles.commentEmail}>{comment.email}</p>
-      </div>
-      <p className={styles.commentBody}>{comment.body}</p>
+      <p className={styles.commentName}>{comment.name}</p>
+      <p className={styles.commentEmail}>{comment.email}</p>
+      <p>{comment.body}</p>
     </>
   );
 };
