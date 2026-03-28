@@ -1,12 +1,13 @@
 import { PostCard } from '../../entities/post/ui/PostCard';
 import type { Post } from '../../entities/post/types/Post';
 import styles from './PostList.module.css';
+import { withLoading } from '../../shared/lib/hoc/HOC';
 
 type Props = {
   posts: Post[];
 };
 
-export const PostList = (props: Props) => {
+const PostList = (props: Props) => {
   const { posts } = props;
   return (
     <div className={styles.postList}>
@@ -16,3 +17,8 @@ export const PostList = (props: Props) => {
     </div>
   );
 };
+
+export const PostListWithLoading = withLoading<{
+  isLoading: boolean;
+  posts: Post[];
+}>(PostList);
