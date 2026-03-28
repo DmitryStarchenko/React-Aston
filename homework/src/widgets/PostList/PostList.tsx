@@ -1,24 +1,32 @@
 import { PostCard } from '../../entities/post/ui/PostCard';
 import type { Post } from '../../entities/post/types/Post';
 import styles from './PostList.module.css';
-import { withLoading } from '../../shared/lib/hoc/HOC';
+import { useMemo, useState } from 'react';
+import { filterByLength } from '../../features/PostLengthFilter/lib/filterByLength';
+import { PostLengthFilter } from '../../features/PostLengthFilter/ui/PostLengthFilter';
 
-type Props = {
-  posts: Post[];
-};
+export const PostList = () => {
+  const [currentLength, setCurrentLength] = useState<number | undefined>(
+    undefined
+  );
 
-const PostList = (props: Props) => {
-  const { posts } = props;
+  const { postsFiltered, postsLength } = useMemo(
+    () => filterByLength(currentLength),
+    [currentLength]
+  );
+
   return (
-    <div className={styles.postList}>
-      {posts.map((post: Post) => (
-        <PostCard key={post.id} post={post} />
-      ))}
+    <div className={styles.postPage}>
+      <PostLengthFilter
+        handleClickFilter={() => setCurrentLength(currentLength)}
+        postsLength={postsLength}
+        setCurrentLength={setCurrentLength}
+      />
+      <div className={styles.postList}>
+        {postsFiltered.map((post: Post) => (
+          <PostCard key={post.id} post={post} />
+        ))}
+      </div>
     </div>
   );
 };
-
-export const PostListWithLoading = withLoading<{
-  isLoading: boolean;
-  posts: Post[];
-}>(PostList);
