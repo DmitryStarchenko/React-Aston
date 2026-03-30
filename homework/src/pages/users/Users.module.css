@@ -31,3 +31,7 @@
     border-color: var(--border-color);
   }
 }
+
+.active {
+  color: rgb(130, 130, 130);
+}
