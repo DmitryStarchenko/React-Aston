@@ -1,3 +1,7 @@
+.postPage {
+  display: flex;
+}
+
 .postList {
   display: flex;
   flex-direction: column;

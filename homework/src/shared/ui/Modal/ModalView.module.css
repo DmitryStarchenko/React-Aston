@@ -1,7 +1,7 @@
 .modal {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   position: absolute;
   top: 20%;
@@ -14,6 +14,17 @@
   gap: 15px;
 }
 
+.title {
+  font-size: 30px;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
 .icon {
   width: 30%;
 }
@@ -23,6 +34,19 @@
   text-decoration: none;
   font-size: 25px;
   font-weight: bold;
+
+  &:hover {
+    color: rgb(141, 0, 0);
+  }
+}
+
+.closeButton {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background-color: var(--transparent);
+  border: none;
+  font-size: 18px;
 
   &:hover {
     color: rgb(141, 0, 0);

@@ -4,6 +4,7 @@
   background-color: var(--transparent);
   border: var(--border-size) solid var(--transparent);
   border-radius: var(--border-radius);
+  cursor: pointer;
 
   &:hover {
     border-color: var(--border-color);
