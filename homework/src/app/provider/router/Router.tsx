@@ -11,8 +11,8 @@ export const Router = () => {
   return (
     <Routes>
       <Route path="/" element={<MainLayout />}>
-        <Route path="posts">
-          <Route index element={<Posts />} />
+        <Route index element={<Posts />} />
+        <Route path="posts" element={<Posts />}>
           <Route path=":postId" element={<Posts />}>
             <Route path="post" element={<Posts />} />
           </Route>

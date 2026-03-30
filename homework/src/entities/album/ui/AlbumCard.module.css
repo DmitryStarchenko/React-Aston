@@ -39,3 +39,7 @@
   top: -23px;
   color: rgba(80, 80, 80, 0.205);
 }
+
+.active {
+  color: rgb(130, 130, 130);
+}

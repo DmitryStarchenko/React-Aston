@@ -8,6 +8,8 @@ type Props = {
 
 export const UserCard = (props: Props) => {
   const { user } = props;
+  const getLinkClass = ({ isActive }: { isActive: boolean }) =>
+    isActive ? `${styles.link} ${styles.active}` : styles.link;
 
   return (
     <div className={styles.card}>
@@ -20,13 +22,13 @@ export const UserCard = (props: Props) => {
         Website: <p className={styles.content}>{user.website}</p>
       </div>
       <div className={styles.nav}>
-        <NavLink className={styles.link} to={`${user.id}/albums`}>
+        <NavLink className={getLinkClass} to={`${user.id}/albums`}>
           Albums
         </NavLink>
-        <NavLink className={styles.link} to={`${user.id}/todos`}>
+        <NavLink className={getLinkClass} to={`${user.id}/todos`}>
           Todos
         </NavLink>
-        <NavLink className={styles.link} to={`${user.id}/posts`}>
+        <NavLink className={getLinkClass} to={`${user.id}/posts`}>
           Posts
         </NavLink>
       </div>

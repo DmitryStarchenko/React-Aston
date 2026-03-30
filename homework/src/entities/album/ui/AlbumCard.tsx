@@ -8,6 +8,8 @@ type Props = {
 
 export const AlbumCard = (props: Props) => {
   const { album } = props;
+  const getLinkClass = ({ isActive }: { isActive: boolean }) =>
+    isActive ? `${styles.link} ${styles.active}` : styles.link;
 
   return (
     <div className={styles.card}>
@@ -16,7 +18,7 @@ export const AlbumCard = (props: Props) => {
       </div>
       <p className={styles.albumTitle}>{album.title}</p>
       <div className={styles.nav}>
-        <NavLink className={styles.link} to={`${album.id}/photos`}>
+        <NavLink className={getLinkClass} to={`${album.id}/photos`}>
           Photos
         </NavLink>
       </div>
