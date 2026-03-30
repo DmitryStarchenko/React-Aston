@@ -21,7 +21,7 @@ export const Posts = () => {
     { skip: !!userId }
   );
   const { data: userPosts, isLoading: isLoadingUser } =
-    useGetPostsByUserIdQuery(Number(userId), { skip: !!postId });
+    useGetPostsByUserIdQuery(Number(userId), { skip: !userId });
 
   const data = userId ? userPosts : allPosts;
   const isLoading = postId ? isLoadingUser : isLoadingAll;

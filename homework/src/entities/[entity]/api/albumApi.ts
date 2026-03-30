@@ -1,11 +1,15 @@
 import { baseApi } from '../../../shared/services/services';
+import type { Album } from '../../album/types/Album';
 
-const albumsApi = baseApi.injectEndpoints({
+export const albumsApi = baseApi.injectEndpoints({
   endpoints: (build) => ({
-    getAlbums: build.query({
+    getAlbums: build.query<Album[], undefined>({
       query: () => 'albums',
+    }),
+    getAlbumsByUserId: build.query<Album[], number>({
+      query: (userId) => `albums?userId=${userId}`,
     }),
   }),
 });
 
-export const { useGetAlbumsQuery } = albumsApi;
+export const { useGetAlbumsQuery, useGetAlbumsByUserIdQuery } = albumsApi;

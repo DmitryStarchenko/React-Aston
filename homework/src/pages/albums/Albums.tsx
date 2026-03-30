@@ -1,4 +1,8 @@
-import { useGetAlbumsQuery } from '../../entities/[entity]/api/albumApi';
+import { useParams } from 'react-router';
+import {
+  useGetAlbumsQuery,
+  useGetAlbumsByUserIdQuery,
+} from '../../entities/[entity]/api/albumApi';
 import { withLoading } from '../../shared/lib/hoc/HOC';
 import type { Album } from '../../entities/album/types/Album';
 import { AlbumList } from '../../widgets/AlbumList/AlbumList';
@@ -9,7 +13,17 @@ const AlbumListWithLoading = withLoading<{
 }>(AlbumList);
 
 export const Albums = () => {
-  const { data, isLoading } = useGetAlbumsQuery(undefined);
+  const { userId } = useParams();
+
+  const { data: allAlbums, isLoading: isLoadingAll } = useGetAlbumsQuery(
+    undefined,
+    { skip: !!userId }
+  );
+  const { data: userAlbums, isLoading: isLoadingUser } =
+    useGetAlbumsByUserIdQuery(Number(userId), { skip: !userId });
+
+  const data = userId ? userAlbums : allAlbums;
+  const isLoading = userId ? isLoadingUser : isLoadingAll;
 
   if (!data) return <h1>Error</h1>;
   return (
