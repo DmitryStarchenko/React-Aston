@@ -25,11 +25,10 @@ export const Albums = () => {
   const data = userId ? userAlbums : allAlbums;
   const isLoading = userId ? isLoadingUser : isLoadingAll;
 
-  if (!data) return <h1>Error</h1>;
   return (
     <>
       <h1>Albums</h1>
-      <AlbumListWithLoading albums={data} isLoading={isLoading} />
+      <AlbumListWithLoading albums={data ?? []} isLoading={isLoading} />
     </>
   );
 };

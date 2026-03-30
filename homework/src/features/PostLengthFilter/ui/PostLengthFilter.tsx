@@ -13,7 +13,7 @@ export const PostLengthFilter = (props: Props) => {
   return (
     <div className={styles.filter}>
       <h3 className={styles.titleFilter}>Filter</h3>
-      <h4 className={styles.titleLength}>Title length</h4>
+      <h4 className={styles.titleLength}>Post title length </h4>
       <div className={styles.content}>
         <span className={styles.minLength}>{minLength}</span>
         <input

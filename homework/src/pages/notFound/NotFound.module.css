@@ -1,0 +1,22 @@
+.notFoundPage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 80vh;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  border: var(--border-size) solid var(--border-color);
+  border-radius: var(--border-radius);
+  width: 50%;
+  height: 400px;
+}
+
+.text {
+  font-size: 130px;
+  text-align: center;
+  color: rgb(184, 0, 0);
+}

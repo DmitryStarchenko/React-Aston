@@ -6,10 +6,11 @@ import type {
 } from '../../../Types/ThemeContext';
 
 export const ThemeProvider = ({ children }: ThemeProviderProps) => {
-  const [theme, setTheme] = useState('light');
+  const [theme, setTheme] = useState<'light' | 'dark'>('light');
 
   useEffect(() => {
-    document.documentElement.setAttribute('theme', theme);
+    const safeTheme = theme === 'dark' ? 'dark' : 'light';
+    document.documentElement.setAttribute('theme', safeTheme);
   }, [theme]);
 
   const toggleTheme = () => {

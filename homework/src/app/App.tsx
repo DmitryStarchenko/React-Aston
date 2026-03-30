@@ -3,6 +3,7 @@ import { ThemeProvider } from '../shared/lib/theme/ThemeProvider';
 import { Router } from './provider/router/Router';
 import { Provider } from 'react-redux';
 import { store } from './provider/store/store';
+import './App.css';
 
 function App() {
   return (

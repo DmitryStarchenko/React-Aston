@@ -11,12 +11,10 @@ export const UserListWithLoading = withLoading<{
 export const Users = () => {
   const { data, isLoading } = useGetUsersQuery(undefined);
 
-  if (!data) return <h1>Error</h1>;
-
   return (
     <>
       <h1>Users</h1>
-      <UserListWithLoading users={data} isLoading={isLoading} />
+      <UserListWithLoading users={data ?? []} isLoading={isLoading} />
     </>
   );
 };

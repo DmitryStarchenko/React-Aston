@@ -3,6 +3,7 @@ import styles from './CommentList.module.css';
 import { Button } from '../../../shared/ui/Button/Button';
 import { useGetCommentsQuery } from '../../../entities/[entity]/api/commentsApi';
 import { CommentCard } from '../../../entities/comment/ui/CommentCard';
+import { Loader } from '../../../features/Loader/Loader';
 
 type Props = {
   postId: number;
@@ -24,7 +25,7 @@ export const CommentList = ({ postId }: Props) => {
     setValue('');
   };
 
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading) return <Loader />;
 
   return (
     <div>

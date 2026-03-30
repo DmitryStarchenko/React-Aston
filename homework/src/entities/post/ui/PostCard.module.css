@@ -1,8 +1,18 @@
 .card {
+  position: relative;
   width: 80%;
   border: var(--border-size) solid var(--border-color);
   border-radius: var(--border-radius);
   padding: var(--padding-10);
+}
+
+.postId {
+  position: absolute;
+  font-size: 200px;
+  margin: 0 20px 0 0;
+  right: 0;
+  top: -23px;
+  color: rgba(80, 80, 80, 0.205);
 }
 
 .buttonComm {

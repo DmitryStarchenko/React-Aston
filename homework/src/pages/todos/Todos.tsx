@@ -25,11 +25,10 @@ export const Todos = () => {
   const data = userId ? userTodos : allTodos;
   const isLoading = userId ? isLoadingUser : isLoadingAll;
 
-  if (!data) return <h1>Error</h1>;
   return (
     <>
       <h1>Todos</h1>
-      <TodoListWithLoading todos={data} isLoading={isLoading} />
+      <TodoListWithLoading todos={data ?? []} isLoading={isLoading} />
     </>
   );
 };
