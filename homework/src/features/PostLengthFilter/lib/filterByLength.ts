@@ -1,6 +1,9 @@
-import { posts } from '../../../entities/post/mocks/posts';
+import type { Post } from '../../../entities/post/types/Post';
 
-export const filterByLength = (currentLength: number | undefined) => {
+export const filterByLength = (
+  currentLength: number | undefined,
+  posts: Post[]
+) => {
   const postsLength = posts
     .map((post) => post.title.length)
     .sort((a, b) => a - b);
