@@ -9,7 +9,14 @@ export const postsApi = baseApi.injectEndpoints({
     getPostsByUserId: build.query<Post[], number>({
       query: (userId) => `posts?userId=${userId}`,
     }),
+    getPostById: build.query<Post, number>({
+      query: (postId) => `posts/${postId}`,
+    }),
   }),
 });
 
-export const { useGetPostsQuery, useGetPostsByUserIdQuery } = postsApi;
+export const {
+  useGetPostsQuery,
+  useGetPostsByUserIdQuery,
+  useGetPostByIdQuery,
+} = postsApi;

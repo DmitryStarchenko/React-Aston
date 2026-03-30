@@ -19,14 +19,12 @@ export const Router = () => {
         </Route>
         <Route path="users">
           <Route index element={<Users />} />
-          <Route path=":userId" element={<Users />} />
           <Route path=":userId/albums" element={<Albums />} />
           <Route path=":userId/todos" element={<Todos />} />
           <Route path=":userId/posts" element={<Posts />} />
         </Route>
         <Route path="albums">
           <Route index element={<Albums />} />
-          <Route path=":albumId" element={<Albums />} />
           <Route path=":albumId/photos" element={<Photos />} />
         </Route>
         <Route path="*" element={<NotFound />} />

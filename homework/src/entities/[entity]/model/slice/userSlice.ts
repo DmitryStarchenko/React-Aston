@@ -60,7 +60,3 @@ const userSlice = createSlice({
 });
 
 export const userReducer = userSlice.reducer;
-
-export const { selectAll: selectAllPosts } = postAdapter.getSelectors();
-export const { selectAll: selectAllAlbums } = albumAdapter.getSelectors();
-export const { selectAll: selectAllTodos } = todoAdapter.getSelectors();
