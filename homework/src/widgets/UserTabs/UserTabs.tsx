@@ -2,15 +2,18 @@ import { NavLink } from 'react-router';
 import styles from './UserTabs.module.css';
 
 export const UserTabs = () => {
+  const getLinkClass = ({ isActive }: { isActive: boolean }) =>
+    isActive ? `${styles.link} ${styles.active}` : styles.link;
+
   return (
     <>
-      <NavLink className={styles.link} to="posts">
+      <NavLink className={getLinkClass} to="posts">
         Posts
       </NavLink>
-      <NavLink className={styles.link} to="users">
+      <NavLink className={getLinkClass} to="users">
         Users
       </NavLink>
-      <NavLink className={styles.link} to="albums">
+      <NavLink className={getLinkClass} to="albums">
         Albums
       </NavLink>
     </>

@@ -6,13 +6,17 @@ import { filterByLength } from '../../features/PostLengthFilter/lib/filterByLeng
 import { PostLengthFilter } from '../../features/PostLengthFilter/ui/PostLengthFilter';
 import { CommentList } from '../CommentList/ui/CommentList';
 
-export const PostList = () => {
+type Props = {
+  posts: Post[];
+};
+
+export const PostList = ({ posts }: Props) => {
   const [currentLength, setCurrentLength] = useState<number | undefined>(
     undefined
   );
   const { postsFiltered, postsLength } = useMemo(
-    () => filterByLength(currentLength),
-    [currentLength]
+    () => filterByLength(currentLength, posts),
+    [currentLength, posts]
   );
 
   return (

@@ -1,18 +1,19 @@
-import { useLocation, useParams } from 'react-router';
-import { MainLayout } from '../../shared/layouts/MainLayout';
+import { useParams } from 'react-router';
 import { usePosts } from '../../features/PostList/model/hooks/usePosts';
 import type { Post } from '../../entities/post/types/Post';
+import { withLoading } from '../../shared/lib/hoc/HOC';
+import { PostList } from '../../widgets/PostList/PostList';
+
+export const PostListWithLoading = withLoading<{
+  isLoading: boolean;
+  posts: Post[];
+}>(PostList);
 
 export const Posts = () => {
-  const { id } = useParams();
-  const location = useLocation();
+  const { userId, postId } = useParams();
 
-  const isUserPostsRoute = location.pathname.includes('/users/');
-  const isSinglePostRoute = location.pathname === `/posts/${id}`;
+  const isLoading = false;
 
-  const postId = isSinglePostRoute ? Number(id) : undefined;
-  const userId = isUserPostsRoute ? Number(id) : undefined;
-
-  const posts: Post[] = usePosts(postId, userId);
-  return <MainLayout posts={posts} />;
+  const posts: Post[] = usePosts(Number(postId), Number(userId));
+  return <PostListWithLoading isLoading={isLoading} posts={posts} />;
 };
