@@ -16,6 +16,7 @@ export const PostCard = (props: Props) => {
   return (
     <div className={styles.card}>
       <h3>{post.title}</h3>
+      <p className={styles.postId}>{post.id}</p>
       <p>{post.body}</p>
       <Button
         CSSClasses={styles.buttonComm}

@@ -1,27 +1,49 @@
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import styles from './CommentList.module.css';
 import { Button } from '../../../shared/ui/Button/Button';
+import { useGetCommentsQuery } from '../../../entities/[entity]/api/commentsApi';
+import { CommentCard } from '../../../entities/comment/ui/CommentCard';
+import { Loader } from '../../../features/Loader/Loader';
 
-export const CommentList = () => {
-  const [comments, setComments] = useState<string[]>([]);
+type Props = {
+  postId: number;
+};
+
+export const CommentList = ({ postId }: Props) => {
+  const { data, isLoading } = useGetCommentsQuery(undefined);
+  const [localComments, setLocalComments] = useState<string[]>([]);
   const [value, setValue] = useState('');
+
+  const apiComments = useMemo(
+    () => data?.filter((comment) => comment.postId === postId) ?? [],
+    [data, postId]
+  );
 
   const handleAdd = () => {
     if (!value.trim()) return;
-    setComments([...comments, value]);
+    setLocalComments([...localComments, value]);
     setValue('');
   };
 
+  if (isLoading) return <Loader />;
+
   return (
     <div>
-      {comments.length === 0 ? (
+      {apiComments.length === 0 && localComments.length === 0 ? (
         <div className={styles.comment}>No comments</div>
       ) : (
-        comments.map((comment, i) => (
-          <div key={i} className={styles.comment}>
-            {comment}
-          </div>
-        ))
+        <>
+          {apiComments.map((comment) => (
+            <div key={comment.id} className={styles.comment}>
+              <CommentCard comment={comment} />
+            </div>
+          ))}
+          {localComments.map((comment, i) => (
+            <div key={`local-${i}`} className={styles.comment}>
+              {comment}
+            </div>
+          ))}
+        </>
       )}
       <div className={styles.addComment}>
         <textarea

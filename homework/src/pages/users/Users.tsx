@@ -1,24 +1,20 @@
-import { NavLink } from 'react-router-dom';
-import styles from './Users.module.css';
+import { useGetUsersQuery } from '../../entities/[entity]/api/usersApi';
+import type { User } from '../../entities/user/types/User';
+import { withLoading } from '../../shared/lib/hoc/HOC';
+import { UserList } from '../../widgets/UserList/UserList';
+
+export const UserListWithLoading = withLoading<{
+  isLoading: boolean;
+  users: User[];
+}>(UserList);
 
 export const Users = () => {
-  const getLinkClass = ({ isActive }: { isActive: boolean }) =>
-    isActive ? `${styles.link} ${styles.active}` : styles.link;
+  const { data, isLoading } = useGetUsersQuery(undefined);
 
   return (
-    <div className={styles.content}>
+    <>
       <h1>Users</h1>
-      <div className={styles.nav}>
-        <NavLink className={getLinkClass} to="1/albums">
-          Albums
-        </NavLink>
-        <NavLink className={getLinkClass} to="5/todos">
-          Todos
-        </NavLink>
-        <NavLink className={getLinkClass} to="8/posts">
-          Posts
-        </NavLink>
-      </div>
-    </div>
+      <UserListWithLoading users={data ?? []} isLoading={isLoading} />
+    </>
   );
 };

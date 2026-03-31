@@ -1,0 +1,57 @@
+.card {
+  width: 80%;
+  border: var(--border-size) solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: var(--padding-20);
+  width: 50%;
+}
+
+.name {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0;
+}
+.userName {
+  margin: 0;
+  color: rgb(119, 119, 119);
+}
+
+.userContent {
+  display: flex;
+  margin-top: 15px;
+}
+
+.content {
+  margin: 0;
+  margin-left: 5px;
+  font-weight: bold;
+}
+
+.nav {
+  display: flex;
+  justify-content: end;
+  gap: 20px;
+}
+
+.link {
+  height: 28px;
+  width: 90px;
+  padding: 10px 0 0 0;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+  text-align: center;
+  border: var(--border-size) solid var(--transparent);
+  border-radius: var(--border-radius);
+  color: rgb(0, 0, 0);
+  background-color: var(--transparent);
+  cursor: pointer;
+
+  &:hover {
+    border-color: var(--border-color);
+  }
+}
+
+.active {
+  color: rgb(130, 130, 130);
+}

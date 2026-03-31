@@ -22,14 +22,13 @@ export const PostList = ({ posts }: Props) => {
   return (
     <div className={styles.postPage}>
       <PostLengthFilter
-        handleClickFilter={() => setCurrentLength(currentLength)}
         postsLength={postsLength}
         setCurrentLength={setCurrentLength}
       />
       <div className={styles.postList}>
         {postsFiltered.map((post: Post) => (
           <PostCard key={post.id} post={post}>
-            {<CommentList />}
+            {<CommentList postId={post.id} />}
           </PostCard>
         ))}
       </div>
