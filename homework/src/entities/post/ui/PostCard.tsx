@@ -1,8 +1,8 @@
 import type { ReactNode } from 'react';
-import type { Post } from '../types/Post';
 import styles from './PostCard.module.css';
 import { Button } from '../../../shared/ui/Button/Button';
 import { useState } from 'react';
+import type { Post } from '../../[entity]/model/types';
 
 type Props = {
   post: Post;

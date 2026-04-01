@@ -1,3 +1,4 @@
+import type { ChangeEvent } from 'react';
 import styles from './PostLengthFilter.module.css';
 
 type Props = {
@@ -21,7 +22,9 @@ export const PostLengthFilter = (props: Props) => {
           min={minLength}
           max={maxLength}
           type="range"
-          onChange={(event) => setCurrentLength(Number(event.target.value))}
+          onChange={(event: ChangeEvent<HTMLInputElement>) =>
+            setCurrentLength(Number(event.target.value))
+          }
         />
         <span className={styles.maxLength}>{maxLength}</span>
       </div>

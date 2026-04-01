@@ -1,24 +1,24 @@
 import { NavLink } from 'react-router-dom';
-import type { Album } from '../types/Album';
 import styles from './AlbumCard.module.css';
+import type { Album } from '../../[entity]/model/types';
 
 type Props = {
-  album: Album;
+  item: Album;
 };
 
 export const AlbumCard = (props: Props) => {
-  const { album } = props;
+  const { item } = props;
   const getLinkClass = ({ isActive }: { isActive: boolean }) =>
     isActive ? `${styles.link} ${styles.active}` : styles.link;
 
   return (
     <div className={styles.card}>
       <div className={styles.albumName}>
-        Album<p className={styles.albumId}>{album.id}</p>
+        Album<p className={styles.albumId}>{item.id}</p>
       </div>
-      <p className={styles.albumTitle}>{album.title}</p>
+      <p className={styles.albumTitle}>{item.title}</p>
       <div className={styles.nav}>
-        <NavLink className={getLinkClass} to={`${album.id}/photos`}>
+        <NavLink className={getLinkClass} to={`${item.id}/photos`}>
           Photos
         </NavLink>
       </div>

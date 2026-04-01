@@ -1,25 +1,25 @@
-import type { Todo } from '../types/Todos';
+import type { Todo } from '../../[entity]/model/types';
 import styles from './TodoCard.module.css';
 
 type Props = {
-  todo: Todo;
+  item: Todo;
 };
 
 export const TodoCard = (props: Props) => {
-  const { todo } = props;
+  const { item } = props;
 
   return (
     <div className={styles.card}>
       <div className={styles.todoName}>
-        Todo<p className={styles.todoId}>{todo.id}</p>
+        Todo<p className={styles.todoId}>{item.id}</p>
       </div>
-      <p>{todo.title}</p>
+      <p>{item.title}</p>
       <div
         className={
-          todo.completed ? styles.todoComplete : styles.todoNotComplete
+          item.completed ? styles.todoComplete : styles.todoNotComplete
         }
       >
-        {todo.completed ? 'Complete' : 'Not complete'}
+        {item.completed ? 'Complete' : 'Not complete'}
       </div>
     </div>
   );

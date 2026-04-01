@@ -4,13 +4,17 @@ import {
   useGetAlbumsByUserIdQuery,
 } from '../../entities/[entity]/api/albumApi';
 import { withLoading } from '../../shared/lib/hoc/HOC';
-import type { Album } from '../../entities/album/types/Album';
-import { AlbumList } from '../../widgets/AlbumList/AlbumList';
+import type { Album } from '../../entities/[entity]/model/types';
+import { AlbumCard } from '../../entities/album/ui/AlbumCard';
+import { ItemList } from '../../shared/ui/ItemList/ItemList';
+import type { ComponentType } from 'react';
+import styles from './Albums.module.css';
 
 const AlbumListWithLoading = withLoading<{
   isLoading: boolean;
-  albums: Album[];
-}>(AlbumList);
+  items: Album[];
+  Card: ComponentType<{ item: Album }>;
+}>(ItemList);
 
 export const Albums = () => {
   const { userId } = useParams();
@@ -28,7 +32,13 @@ export const Albums = () => {
   return (
     <>
       <h1>Albums</h1>
-      <AlbumListWithLoading albums={data ?? []} isLoading={isLoading} />
+      <div className={styles.albumsList}>
+        <AlbumListWithLoading
+          items={data ?? []}
+          isLoading={isLoading}
+          Card={AlbumCard}
+        />
+      </div>
     </>
   );
 };
