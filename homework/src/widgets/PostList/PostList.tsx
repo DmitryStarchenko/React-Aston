@@ -1,6 +1,7 @@
 import { PostCard } from '../../entities/post/ui/PostCard';
 import styles from './PostList.module.css';
-import { useMemo, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
+import type React from 'react';
 import { filterByLength } from '../../features/PostLengthFilter/lib/filterByLength';
 import { PostLengthFilter } from '../../features/PostLengthFilter/ui/PostLengthFilter';
 import { CommentList } from '../CommentList/ui/CommentList';
@@ -19,12 +20,25 @@ export const PostList = ({ posts }: Props) => {
     [currentLength, posts]
   );
 
-  return (
-    <div className={styles.postPage}>
+  const handleSetLength = useCallback(
+    (value: React.SetStateAction<number | undefined>) =>
+      setCurrentLength(value),
+    []
+  );
+
+  const filter = useMemo(
+    () => (
       <PostLengthFilter
         postsLength={postsLength}
-        setCurrentLength={setCurrentLength}
+        setCurrentLength={handleSetLength}
       />
+    ),
+    [postsLength, handleSetLength]
+  );
+
+  return (
+    <div className={styles.postPage}>
+      {filter}
       <div className={styles.postList}>
         {postsFiltered.map((post: Post) => (
           <PostCard key={post.id} post={post}>
