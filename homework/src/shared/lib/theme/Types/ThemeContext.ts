@@ -1,8 +1,10 @@
+import type { MouseEventHandler } from 'react';
+
 export interface ThemeProviderProps {
   children: React.ReactNode;
 }
 
 export interface ThemeContextType {
-  toggleTheme: () => void;
+  toggleTheme: MouseEventHandler<HTMLButtonElement>;
   isDark: boolean;
 }

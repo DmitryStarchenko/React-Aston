@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useMemo, useState, type ChangeEvent } from 'react';
 import styles from './CommentList.module.css';
 import { Button } from '../../../shared/ui/Button/Button';
 import { useGetCommentsQuery } from '../../../entities/[entity]/api/commentsApi';
@@ -50,7 +50,9 @@ export const CommentList = ({ postId }: Props) => {
           className={styles.input}
           name="comment"
           value={value}
-          onChange={(event) => setValue(event.target.value)}
+          onChange={(event: ChangeEvent<HTMLTextAreaElement>) =>
+            setValue(event.target.value)
+          }
         />
         <Button
           CSSClasses={styles.button}
