@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
-import type { Album } from '../types/Album';
 import styles from './AlbumCard.module.css';
+import type { Album } from '../../[entity]/model/types';
 
 type Props = {
   album: Album;

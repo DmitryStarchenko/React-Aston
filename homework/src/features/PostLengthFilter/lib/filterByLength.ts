@@ -1,4 +1,4 @@
-import type { Post } from '../../../entities/post/types/Post';
+import type { Post } from '../../../entities/[entity]/model/types';
 
 export const filterByLength = (
   currentLength: number | undefined,

@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
-import type { User } from '../types/User';
 import styles from './UserCard.module.css';
+import type { User } from '../../[entity]/model/types';
 
 type Props = {
   user: User;

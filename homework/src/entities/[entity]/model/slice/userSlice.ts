@@ -1,10 +1,8 @@
 import { createEntityAdapter, createSlice } from '@reduxjs/toolkit';
-import type { Post } from '../../../post/types/Post';
-import type { Album } from '../../../album/types/Album';
-import type { Todo } from '../../../todo/types/Todos';
 import { postsApi } from '../../api/postsApi';
 import { albumsApi } from '../../api/albumApi';
 import { todosApi } from '../../api/todosApi';
+import type { Album, Post, Todo } from '../types';
 
 export const postAdapter = createEntityAdapter<Post>();
 export const albumAdapter = createEntityAdapter<Album>();

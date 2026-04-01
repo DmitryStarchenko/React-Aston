@@ -3,7 +3,7 @@ import { ThemeContext } from './useTheme';
 import type {
   ThemeContextType,
   ThemeProviderProps,
-} from '../../../Types/ThemeContext';
+} from './Types/ThemeContext';
 
 export const ThemeProvider = ({ children }: ThemeProviderProps) => {
   const [theme, setTheme] = useState<'light' | 'dark'>('light');

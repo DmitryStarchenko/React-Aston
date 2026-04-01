@@ -1,5 +1,5 @@
 import { useGetUsersQuery } from '../../entities/[entity]/api/usersApi';
-import type { User } from '../../entities/user/types/User';
+import type { User } from '../../entities/[entity]/model/types';
 import { withLoading } from '../../shared/lib/hoc/HOC';
 import { UserList } from '../../widgets/UserList/UserList';
 

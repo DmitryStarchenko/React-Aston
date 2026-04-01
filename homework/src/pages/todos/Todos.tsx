@@ -3,9 +3,9 @@ import {
   useGetTodosQuery,
   useGetTodosByUserIdQuery,
 } from '../../entities/[entity]/api/todosApi';
-import type { Todo } from '../../entities/todo/types/Todos';
 import { withLoading } from '../../shared/lib/hoc/HOC';
 import { TodoList } from '../../widgets/TodoList/TodoList';
+import type { Todo } from '../../entities/[entity]/model/types';
 
 const TodoListWithLoading = withLoading<{
   isLoading: boolean;

@@ -4,8 +4,8 @@ import {
   useGetAlbumsByUserIdQuery,
 } from '../../entities/[entity]/api/albumApi';
 import { withLoading } from '../../shared/lib/hoc/HOC';
-import type { Album } from '../../entities/album/types/Album';
 import { AlbumList } from '../../widgets/AlbumList/AlbumList';
+import type { Album } from '../../entities/[entity]/model/types';
 
 const AlbumListWithLoading = withLoading<{
   isLoading: boolean;

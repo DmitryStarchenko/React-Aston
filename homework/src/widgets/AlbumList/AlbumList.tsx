@@ -1,4 +1,4 @@
-import type { Album } from '../../entities/album/types/Album';
+import type { Album } from '../../entities/[entity]/model/types';
 import { AlbumCard } from '../../entities/album/ui/AlbumCard';
 import styles from './AlbumList.module.css';
 

@@ -1,4 +1,4 @@
-import type { User } from '../../entities/user/types/User';
+import type { User } from '../../entities/[entity]/model/types';
 import { UserCard } from '../../entities/user/ui/UserCard';
 import styles from './UserList.module.css';
 

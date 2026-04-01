@@ -1,10 +1,10 @@
 import { PostCard } from '../../entities/post/ui/PostCard';
-import type { Post } from '../../entities/post/types/Post';
 import styles from './PostList.module.css';
 import { useMemo, useState } from 'react';
 import { filterByLength } from '../../features/PostLengthFilter/lib/filterByLength';
 import { PostLengthFilter } from '../../features/PostLengthFilter/ui/PostLengthFilter';
 import { CommentList } from '../CommentList/ui/CommentList';
+import type { Post } from '../../entities/[entity]/model/types';
 
 type Props = {
   posts: Post[];

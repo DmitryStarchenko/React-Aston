@@ -1,5 +1,5 @@
 import { baseApi } from '../../../shared/services/services';
-import type { Post } from '../../post/types/Post';
+import type { Post } from '../model/types';
 
 export const postsApi = baseApi.injectEndpoints({
   endpoints: (build) => ({

@@ -1,5 +1,4 @@
 import { useParams } from 'react-router';
-import type { Post } from '../../entities/post/types/Post';
 import { withLoading } from '../../shared/lib/hoc/HOC';
 import { PostList } from '../../widgets/PostList/PostList';
 import {
@@ -7,6 +6,7 @@ import {
   useGetPostsByUserIdQuery,
   useGetPostByIdQuery,
 } from '../../entities/[entity]/api/postsApi';
+import type { Post } from '../../entities/[entity]/model/types';
 
 const PostListWithLoading = withLoading<{
   isLoading: boolean;

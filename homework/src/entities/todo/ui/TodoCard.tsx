@@ -1,4 +1,4 @@
-import type { Todo } from '../types/Todos';
+import type { Todo } from '../../[entity]/model/types';
 import styles from './TodoCard.module.css';
 
 type Props = {

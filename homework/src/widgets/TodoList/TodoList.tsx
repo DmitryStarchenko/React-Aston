@@ -1,4 +1,4 @@
-import type { Todo } from '../../entities/todo/types/Todos';
+import type { Todo } from '../../entities/[entity]/model/types';
 import { TodoCard } from '../../entities/todo/ui/TodoCard';
 import styles from './TodoList.module.css';
 
